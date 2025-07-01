@@ -29,9 +29,6 @@ async fn main() {
         .await
         .expect("can add default bootstrap nodes");
     ipfs.bootstrap().await.expect("can bootstrap IPFS node");
-    ipfs.dht_mode(rust_ipfs::DhtMode::Auto)
-        .await
-        .expect("can set dht mode to auto");
 
     let addrs = ipfs
         .listening_addresses()
@@ -63,7 +60,7 @@ async fn main() {
 
     let _ = rx.await;
     {
-        let put = ipfs.put_dag(b"nootwashere\n").codec(BlockCodec::Raw);
+        let put = ipfs.put_dag(b"nootwashere4\n").codec(BlockCodec::Raw);
         let cid = put.await.expect("can put data into ipfs repo");
         println!("put data into ipfs repo: {:?}", cid);
 
@@ -114,16 +111,16 @@ async fn main() {
                 connection_id,
                 addr,
             } => {
-                println!(
-                    "outgoing connection (id {}) to {} at {}",
-                    connection_id, peer_id, addr
-                );
+                // println!(
+                //     "outgoing connection (id {}) to {} at {}",
+                //     connection_id, peer_id, addr
+                // );
             }
             ConnectionEvents::ClosedConnection {
                 peer_id,
                 connection_id,
             } => {
-                println!("closed connection (id {}) to {}", connection_id, peer_id);
+                //println!("closed connection (id {}) to {}", connection_id, peer_id);
             }
         }
     }

@@ -1552,7 +1552,6 @@ dependencies = [
  "rust-ipfs",
  "serde",
  "tokio",
- "tracing",
 ]
 
 [[package]]
