@@ -1545,10 +1545,12 @@ dependencies = [
 ]
 
 [[package]]
-name = "ipfs-rust-test"
+name = "ipfs-rust-example"
 version = "0.1.0"
 dependencies = [
+ "ipld-core",
  "rust-ipfs",
+ "serde",
  "tokio",
  "tracing",
 ]

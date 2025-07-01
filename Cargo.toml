@@ -1,9 +1,11 @@
 [package]
-name = "ipfs-rust-test"
+name = "ipfs-rust-example"
 version = "0.1.0"
 edition = "2024"
 
 [dependencies]
+ipld-core = "0.4"
 rust-ipfs = "0.14"
+serde = "1"
 tokio = { version = "1.43.0", features = ["full", "macros"] }
 tracing = "0.1"
