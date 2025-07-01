@@ -60,14 +60,13 @@ async fn main() {
 
     let _ = rx.await;
     {
-        let put = ipfs.put_dag(b"nootwashere4\n").codec(BlockCodec::Raw);
+        let put = ipfs.put_dag(b"nootwashere5\n").codec(BlockCodec::Raw);
         let cid = put.await.expect("can put data into ipfs repo");
         println!("put data into ipfs repo: {:?}", cid);
 
         ipfs.provide(cid)
             .await
             .expect("can provide data in IPFS repo");
-        ipfs.bootstrap().await.expect("can bootstrap IPFS node");
 
         let get = ipfs
             .get_dag(cid)
